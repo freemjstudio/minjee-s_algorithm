@@ -10,10 +10,9 @@ while True:
     temp = n//10 + n%10
     result = (n%10)*10 + temp%10
     count += 1
-    n = result # 여기가 포인트네 ! 
+    n = result # 여기가 포인트네 !
     if result == num:
         break
-
 print(count)
 
 
