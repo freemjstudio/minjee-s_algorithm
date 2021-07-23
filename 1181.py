@@ -1,16 +1,13 @@
-t = int(input())  # test case
-for i in range(t):
-    n, s = input().split()
-    n = int(n)
-    text = ''
-    for j in s:
-        text += n*j
-    print(text)
+n = int(input()) # 단어의 개수
+words = []
+for i in range(n):
+    words.append(input())
 
-a,b = map(int, input().split())
-print(a+b)
-print(a-b)
-print(a*b)
-print(int(a/b))
-print(a%b)
+set_words = set(words)
+words = list(set_words)
+words.sort()
+words.sort(key=len) # .. 이게 파이썬이다 헐
 
+for i in words:
+    print(i)
+    
