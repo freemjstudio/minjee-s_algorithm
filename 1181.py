@@ -10,4 +10,3 @@ words.sort(key=len) # .. 이게 파이썬이다 헐
 
 for i in words:
     print(i)
-    
