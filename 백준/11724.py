@@ -1,5 +1,7 @@
 # 11724 연결요소의 개수
 import sys
+from collections import deque
+
 sys.setrecursionlimit(10000)
 
 input = sys.stdin.readline
@@ -13,6 +15,27 @@ for _ in range(M):
     adj_list[x].append(y)
     adj_list[y].append(x)
 
+def bfs(v):
+    queue = deque([v])
+    visit[v] = True
+
+    while queue:
+        v = queue.popleft()
+        for i in adj_list[v]:
+            if not visit[i]:
+                queue.append(i)
+                visit[i] = True
+
+
+
+for i in range(1, N+1):
+    if not visit[i]:
+        bfs(i)
+        count += 1
+
+print(count)
+
+
 def dfs(v):
     visit[v] = True # start node checked as visited
 
@@ -22,15 +45,10 @@ def dfs(v):
 
 for i in range(1, N+1):
     if not visit[i]:
-        dfs(i)
+        bfs(i)
         count += 1
 
-print(count)
 
-### bfs로 풀이 ??
-
-def bfs(v):
-    
 
 
 
