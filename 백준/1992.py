@@ -25,4 +25,4 @@ def quadtree(x, y, n):
 
 
 # result
-print("".join(quadtree(0,0,N)))
+print("".join(quadtree(0,0,N))) # 문자열 합치기 join
