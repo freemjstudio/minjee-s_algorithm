@@ -7,7 +7,7 @@ N, M = map(int, input().split())
 maze = []
 
 for _ in range(N):
-    maze.append(list(map(int, input().split())))
+    maze.append(list(map(int, input())))
 
 dx = [-1,1,0,0]
 dy = [0,0,-1,1]
@@ -24,6 +24,9 @@ def bfs(x,y):
             ny = y + dy[i]
 
             if nx < 0 or ny < 0 or nx >= N or ny >= M:
+                continue
+
+            if maze[nx][ny] == 0:
                 continue
 
             if maze[nx][ny] == 1:
