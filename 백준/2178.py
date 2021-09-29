@@ -26,9 +26,6 @@ def bfs(x,y):
             if nx < 0 or ny < 0 or nx >= N or ny >= M:
                 continue
 
-            if maze[nx][ny] == 0:
-                continue
-
             if maze[nx][ny] == 1:
                 queue.append((nx,ny))
                 maze[nx][ny] = maze[x][y] + 1 # 지금 칸까지 오기까지 몇개가 지났는지 count 한다.
