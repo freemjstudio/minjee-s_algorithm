@@ -1,25 +1,24 @@
 # 11286 절댓값 힙
 import sys
+import heapq
 
 N = int(sys.stdin.readline())
-array = []
+heap = []
 
 for _ in range(N):
     num = int(sys.stdin.readline())
     if num != 0:
-        array.append(num)
+        heapq.heappush(heap, (abs(num), num))
     else:
-        result = []
-        min_abs = array[0]
-        for i in array:
-            if abs(i) < min_abs:
-                min_abs = abs(i)
+        try:
+            print(heapq.heappop(heap)[1])
+        except:
+            print(0) # 예외처리를 할 때 except 되게 간편하다 오오..
 
-        for i in array:
-            if abs(i) == min_abs:
-                result.append(i)
 
-        print(min(result))
-        array.remove(min(result))
+
+
+
+
 
 
