@@ -1,6 +1,2 @@
-import re
-string = "Hey MAMA!"
-string = re.sub("MA","",string)
-print(string)
-
-
+stack = 'Python'
+print(''.join(stack[-4:]))
