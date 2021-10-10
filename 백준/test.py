@@ -1,6 +1,6 @@
-sentence = ' (eRror  is    oh Hello   ) '
-sentence = sentence.lower().strip()
-print(sentence)
+import re
+string = "Hey MAMA!"
+string = re.sub("MA","",string)
+print(string)
 
-sentence = " ".join(sentence.split())
-print(sentence)
+
