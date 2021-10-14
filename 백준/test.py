@@ -1,5 +1,2 @@
-array = [3,7,4,9,1,1,1]
-
-temp = sorted(array)
-print(temp)
-
+graph = [[0]*5 for i in range(5)]
+print(graph)
