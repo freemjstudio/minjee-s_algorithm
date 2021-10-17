@@ -12,7 +12,7 @@ for i in range(len(height)):
 total = 0
 temp = 0
 
-for i in range(maxIndex+1): 
+for i in range(maxIndex+1):
     if height[i] > temp:
         temp = height[i]
     total += temp
