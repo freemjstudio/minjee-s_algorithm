@@ -37,7 +37,7 @@ for edge in edges:
         union_parent(parent, a, b)
         result += cost
         max_cost = cost
-        
+
 print(result - max_cost)
 
 
