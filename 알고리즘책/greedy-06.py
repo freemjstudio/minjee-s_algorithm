@@ -1,8 +1,2 @@
-
-
-def solve(n):
-    if n == 1:
-        return 1
-    return solve(n-1)*n
-
-print(solve(5))
+numbers = [ i for i in range(1, 3+1)]
+print(numbers)
