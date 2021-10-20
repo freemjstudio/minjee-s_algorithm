@@ -1,5 +1,4 @@
 # n 과 m
-
 n, m = map(int, input().split())
 array = []
 
