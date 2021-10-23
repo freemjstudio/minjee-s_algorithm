@@ -1,4 +1,6 @@
-array = [1,2,3,9,4,5,6]
-print(len(array[:3]))
-b = array[:3]
-print(b)
+for i in range(0, 10, 3):
+    print(i)
+
+
+words = 'hello'
+print(words[:3])
