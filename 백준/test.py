@@ -1,6 +1,2 @@
-for i in range(0, 10, 3):
-    print(i)
-
-
-words = 'hello'
-print(words[:3])
+word = 'hello'
+print(word[::-1]) # 파이썬 글자 뒤집기
