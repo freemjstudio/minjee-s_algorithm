@@ -1,2 +1,2 @@
-word = 'hello'
-print(word[::-1]) # 파이썬 글자 뒤집기
+for i in range(5,-2, -1):
+    print(i)
