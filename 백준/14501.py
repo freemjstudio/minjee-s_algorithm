@@ -1,18 +1,21 @@
 n = int(input())
-t = []
-p = []
-dp = []
+t = [] # time
+p = [] # price
+dp = [0] * (n+1)
 
-for i in range(n):
-    a, b = map(int, input().split()) # 소요 일수, 얻는 비용
+max_value = 0
+
+for _ in range(n):
+    a, b = map(int, input().split())
     t.append(a)
     p.append(b)
-    dp.append(b) # 비용 최대를 구해야하니까 dp는 비용 중심이다 !
-dp.append(0)
 
-for i in range(n-1, -1, -1): # (n-1) ... 0
-    if t[i] + i > n: # 상담 불가능한 경우지~~~
-        dp[i] = dp[i+1] # day 7은 못하니까 걍 8 값 0을 넣엇음 ㅋㅋ
-    else: # 상담 가능한 경우 지금 건수를 할지말지잖아
-        dp[i] = max(dp[i+1], p[i] + dp[i + t[i]]) #day 5말고 6 , 
-print(dp[0])
+# 리스트를 뒤에서 부터 거꾸로 확인한다.
+for i in range(n-1, -1, -1):
+    time = t[i] + i
+    if time <= n: # 상담 기간내인 경우
+        dp[i] = max(p[i] + dp[time], max_value)
+    else: # 상담 기간을 벗어나는 경우
+        dp[i] = max_value
+
+print(max_value)
