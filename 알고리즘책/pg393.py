@@ -18,7 +18,7 @@ def union_parent(parent, a, b):
 
 # 여행지 개수와 여행 계획에 속한 여행지의 개수 입력받기
 n, m = map(int, input().split())
-parent = [0] * (n+1) # 부모 테이블 초기화 
+parent = [0] * (n+1) # 부모 테이블 초기화
 
 for i in range(1, n+1):
     parent[i] = i
