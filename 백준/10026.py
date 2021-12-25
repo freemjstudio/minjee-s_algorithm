@@ -10,15 +10,15 @@ q = deque()
 c = [[0]* n for _ in range(n)] # 0으로 n*n 2차원 배열 초기화
 
 def bfs(x, y):
-    q.append([x,y]) # current position
+    q.append([x,y])
     c[x][y] = 0
     while q:
         x, y = q.popleft()
         for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
+            nx = dx[i] + x
+            ny = dy[i] + y
             if 0 <= nx < n and 0 <= ny < n:
-                if array[nx][ny] == array[x][y] and c[nx][ny] == 0:
+                if array[x][y] == array[nx][ny] and c[nx][ny] == 0:
                     q.append([nx, ny])
                     c[nx][ny] = 1
 
