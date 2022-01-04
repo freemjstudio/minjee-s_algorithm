@@ -35,7 +35,7 @@ while True :
 
 '''
 result = 0
-numbers.sort()
+numbers.sort() 
 first = numbers[n-1] # 가장 큰 수 
 second = numbers[n-2] # 두번째로 큰 수 
 
