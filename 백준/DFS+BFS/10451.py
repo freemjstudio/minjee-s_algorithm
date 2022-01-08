@@ -16,7 +16,7 @@ for i in range(t):
     array = [0]+list(map(int, input().split()))
     visited = [0]*(n+1)
     for i in range(1, n+1):
-        if visited[i] == 0:
+        if visited[i] == 0: 
             dfs(i)
             result += 1
     print(result)
