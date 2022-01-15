@@ -1,0 +1,2 @@
+g = int(input())
+d = 
