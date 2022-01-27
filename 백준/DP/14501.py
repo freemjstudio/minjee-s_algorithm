@@ -8,7 +8,6 @@ for i in range(n):
     t.append(a)
     p.append(b)
 
-
 for i in range(n-1, -1, -1):
     if i + t[i] > n:
         dp[i] = dp[i+1]
