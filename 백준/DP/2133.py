@@ -1,15 +1,14 @@
-n, m = map(int, input().split())
-a = []
-d = [10001]*(m+1)
-for i in range(n):
-    a.append(int(input()))
-d[0] = 0
+n = int(input())
+dp = [0]* 31
+# max 값을 저장하면 된다.
 
-for i in range(n):
-    for j in range(a[i], m+1):
-        d[j] = min(d[j], d[j - a[i]]+1)
+dp[2] = 3
 
-if d[m] == 10001:
-    print(-1)
-else:
-    print(d[m])
+
+for i in range(4, 31, 2): # 4칸씩 잡아먹는 모양이 있음
+    dp[i] = dp[i-2] * 3
+    for j in range(4, i, 2):
+        dp[i] += 2 * dp[i-j]
+    dp[i] += 2
+
+print(dp[n])
