@@ -1,5 +1,8 @@
 def consecutive_sum(start, end):
+
     if start == end:
+        print(start)
+        print("???")
         return start
     mid = (start + end) //2
     return consecutive_sum(start, mid) + consecutive_sum(mid+1, end)
