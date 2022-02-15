@@ -1,13 +1,13 @@
 # 미세먼지안녕 17144
+import sys
 
-
-r, c, t = map(int, input().split())
+r, c, t = map(int, sys.stdin.readline().split())
 array = []
 up = -1 # x 좌표만 기록
 down = -1
 
 for i in range(r):
-    array.append(list(map(int, input().split())))
+    array.append(list(map(int, sys.stdin.readline().split())))
 
 # 공기 청정기 x 좌표 찾기 ( y 좌표는 동일함 )
 for i in range(r):
