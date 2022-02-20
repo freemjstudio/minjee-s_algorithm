@@ -1,27 +1,27 @@
+
 n = int(input())
-array = []
-for _ in range(n):
-    array.append(list(map(int, input().split())))
 
-max_result = 0
-min_result = int(1e9)
+max_dp = [0]*3
+min_dp = [0]*3
 
-def move(type, i):
-    if type == 0: # down
-        for j in range(n):
-            array[i-1][j] += array[i][j]
-    elif type == 1: # down left
-        for j in range(n):
-            array[i-1][j-1] += array[i][j]
-    else: # down right
-        for j in range(n):
-            array[i-1][j+1] += array[i][j]
+max_temp = [0]*3
+min_temp = [0]*3
+for i in range(n):
+    a, b, c = map(int, input().split())
+    for j in range(3):
+        if j == 0:
+            max_temp[j] = a + max(max_dp[j], max_dp[j+1])
+            min_temp[j] = a + min(min_dp[j], min_dp[j+1])
+        elif j == 1:
+            max_temp[j] = b + max(max_dp[j], max_dp[j-1], max_dp[j+1])
+            min_temp[j] = b + min(min_dp[j], min_dp[j-1], min_dp[j+1])
+        else: # j == 2
+            max_temp[j] = c + max(max_dp[j], max_dp[j-1])
+            min_temp[j] = c + min(min_dp[j], min_dp[j-1])
+    for k in range(3):
+        max_dp[k] = max_temp[k]
+        min_dp[k] = min_temp[k]
 
 
-def dfs(count):
-    if count == n-1:
-        for j in range(n):
-            max_result = max(max_result, array[n-1][j])
-            min_result = min(min_result, array[n-1][j])
-        return
-    for type in range(3):
+print(max(max_dp), min(min_dp))
+
