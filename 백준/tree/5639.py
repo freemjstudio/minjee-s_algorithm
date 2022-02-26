@@ -12,7 +12,7 @@ def postorder(start, end):
 
     for i in range(start+1, end+1):
         if root < tree[i]:
-            idx = i
+            idx = i # left sub tree 와 right subtree의 경계가 되는 index
             break
     postorder(start+1, idx-1)
     postorder(idx, end)
