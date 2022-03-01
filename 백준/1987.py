@@ -2,7 +2,7 @@
 r, c = map(int, input().split())
 array = []
 for _ in range(r):
-    array.append(list(input()))
+    array.append(input())
 
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
@@ -10,7 +10,6 @@ dy = [0, 0, -1, 1]
 count = 1
 alphabet = []
 def dfs(x, y, cnt):
-
     global count
     count = max(cnt, count)
 
@@ -22,7 +21,8 @@ def dfs(x, y, cnt):
             if array[nx][ny] not in alphabet:
                 alphabet.append(array[nx][ny])
                 dfs(nx, ny, cnt+1)
-                alphabet.pop()
+                alphabet.remove(array[nx][ny])
 
-dfs(0, 0, 1)
+alphabet.append(array[0][0])
+dfs(0, 0, count)
 print(count)
