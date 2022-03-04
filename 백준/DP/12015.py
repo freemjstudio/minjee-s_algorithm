@@ -1,18 +1,24 @@
 # 12015 가장 긴 증가하는 부분 수열 2
 
 n = int(input())
-array = map(int, input().split())
+array = list(map(int, input().split()))
 
-result = 0
+dp = [0]
 
-dp = [0]*n
-dp[0] = 1
+for num in array:
+    if dp[-1] < num: # num 이 가장 큰 숫자이면 더한다
+        dp.append(num)
+    else: # binary search
+        left = 0
+        right = len(dp)
+        while left < right: # while 문 종료 조건
+            mid = (left+right)//2
+            if dp[mid] < num:
+                left = mid + 1
+            else:
+                right = mid
+        dp[right] = num
 
-for i in range(1, n):
-    if array[i] > array[i-1]:
-        dp[i] = max(dp[i-1]+1, dp[i])
+print(len(dp)-1)
 
 
-
-
-print(result)
