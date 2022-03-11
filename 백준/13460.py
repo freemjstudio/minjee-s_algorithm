@@ -23,7 +23,7 @@ visited = [[[[False]*m for i in range(n)] for _ in range(m)] for _ in range(n)]
 
 def move(i, j, dx, dy): # 'O' or '#' 나올 때까지 이동
     c = 0
-    while board[i + dx][j + dy] != 'O' and board[i + dx][j + dy] != '#':
+    while board[i][j] != 'O' and board[i + dx][j + dy] != '#':
         i += dx
         j += dy
         c += 1
