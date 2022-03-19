@@ -8,7 +8,9 @@ for _ in range(t):
     n, k = map(int, input().split())
     indegree = [0]*(n+1) # 모든 노드에 대해 진입차수를 0으로 초기화
     graph = [[] for i in range(n+1)] # node 수만큼 간선의 정보를 담는다.
-    cost = list(map(int, input().split()))
+    # 각 건물들의 건설시간
+    cost = [0] + list(map(int, input().split()))
+    dp = [0]*(n+1) # 해당 건물까지 걸리는 시간
     for _ in range(k):
         a, b = map(int, input().split()) # a -> b
         # a에서 b로 이동가능
@@ -20,14 +22,12 @@ for _ in range(t):
     for i in range(1, n+1):
         if indegree[i] == 0: # 진입 차수가 0이면 q에 넣는다.
             q.append(i)
+            dp[i] = cost[i] # 비용 초기화
     while q: # 큐가 빌 때까지 반복
         now = q.popleft()
-        result += cost[now-1]
-        if now == w:
-            break
         for i in graph[now]:
             indegree[i] -= 1
+            dp[i] = max(dp[now]+cost[i], dp[i])
             if indegree[i] == 0:
                 q.append(i)
-
-    print(result)
+    print(dp[w])
