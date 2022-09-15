@@ -33,7 +33,7 @@ def comp(first, second):
                 continue
             else:
                 return alphabet.index(first[1][i]) - alphabet.index(second[1][i])
-    return len(first[1][i]) - len(second[1][i])
+    return len(first[1]) - len(second[1])
 
 answer = sorted(array, key = cmp_to_key(comp))
 for i in answer:
