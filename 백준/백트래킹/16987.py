@@ -18,7 +18,9 @@ def break_egg(idx):
                 count += 1
         answer = max(answer, count)
         return
-
+    if eggs[idx][0] <= 0:
+        break_egg(idx+1)
+        return 
     # 계란이 모두 깨져있는지 확인
     flag = True
     for i in range(n):
@@ -26,6 +28,7 @@ def break_egg(idx):
             continue
         if eggs[i][0] > 0:
             flag = False
+            break
     if flag:
         answer = max(answer, n-1)
         return
