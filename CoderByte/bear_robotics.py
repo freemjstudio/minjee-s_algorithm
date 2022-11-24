@@ -7,7 +7,6 @@ def remove(val):
     stack.remove(val)
 
 # 중복 허용하지 않고
-
 def remove_first():
     stack.pop(0)
 
